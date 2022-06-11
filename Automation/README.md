@@ -49,13 +49,49 @@ Webcam을 사용한 FaceDetection은 **MediaPipe**라는 Library에서 제공한
 pip install mediapipe opencv-python
 ```
 
-MediaPipe Link: https://google.github.io/mediapipe/ 
-MediaPipe는 FaceDectect 이외에도 ObjectDetect, HandSkeleton 등 다양한 Pre-Train 된 Model을 제공한다. 
+MediaPipe Site: [MediaPipe Link](https://google.github.io/mediapipe/)
+MediaPipe는 FaceDectect 이외에도 ObjectDetect, HandSkeleton 등 다양한 Pre-Train 된 Model을 제공한다.
 
 Reference Link: [FaceDetection_Default](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detection_default.py)
-위 링크는 MediaPipe에서 제공하는 파이썬 기반 FaceDetection의 초기 코드이다. 이 코드를 수정하여 위 프로젝트를 진행하였다.
+위 링크는 MediaPipe에서 제공하는 파이썬 기반 FaceDetection의 초기 코드이다. 위 코드를 실행하면 미리 Pre-Train되어있기 때문에 얼굴 부분을 Detection해주는 것을 확인 할 수 있다.
+
+
 
 ### Step 2
+
+MediaPipe는 Bounding Box의 좌표를 제공한다. 제공하는 좌표는 Bounding Box의 Xmin, Ymin, Width, height 총 4개의 좌표를 제공한다. 또한 0~1로 각 좌표들이 Normalize하여 제공하다.
+
+```python
+xmin = detection.location_data.relative_bounding_box.xmin * now_image.shape[1]
+ymin = detection.location_data.relative_bounding_box.ymin * now_image.shape[0]
+width = detection.location_data.relative_bounding_box.width * now_image.shape[1]
+height = detection.location_data.relative_bounding_box.height * now_image.shape[0]
+```
+
+위 작업을 통해 Normailze된 좌표를 원래의 좌표로 수정하였다. eq) Image Szie: 640X480
+
+
+
+```python
+left=int(xmin)
+top=int(ymin)
+right=int(xmin + width)
+bottom=int(ymin + height)
+```
+
+위 작업을 통해 Bounding Box의 각 모서리 좌표를 얻었다. MediaPipe에서 제공하는 좌표값은 모두 float형태로 제공하기 때문에 Integer형태로 변화해 주었다.
+
+
+
+```python
+croppedImage = now_image[top:bottom, left:right]
+```
+
+위 작업을 통해 원본 Image에서 얼굴 부분만 추출했다.
+
+
+
+### Step 3
 
 
 
