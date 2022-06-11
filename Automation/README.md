@@ -41,9 +41,18 @@ Face Detection의 순서는 다음과 같다.
 
 ​	Step 3. Pre-Train 된 모델을 사용하여 사람의 표정을 7개의 종류 중 하나로 분석한다.
 
+### Step 1
 
+Webcam을 사용한 FaceDetection은 **MediaPipe**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Cmd창에서 아래와 같은 코드를 입력하여 두 Library를 설치한다.
 
+```text
+pip install mediapipe opencv-python
+```
 
+MediaPipe Link: https://google.github.io/mediapipe/ 
+MediaPipe는 FaceDectect 이외에도 ObjectDetect, HandSkeleton 등 다양한 Pre-Train 된 Model을 제공한다. 
+
+[Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detect.py)
 
 
 
