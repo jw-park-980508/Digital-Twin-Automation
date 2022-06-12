@@ -118,6 +118,7 @@ print(obj['dominant_emotion'])
 위 코드를 입력하게 되면 example_Img에 대해서 표정을 분석하고 확률이 가장 높은 표정을 출력한다.  analyze 함수는 표정 뿐만아니라 표정에 대한 확률, 나이,  성별 등 다양한 값을 반환한다.
 
 Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detect.py)
+
 위 링크는 Step 1, 2, 3을 반영한 코드이다.
 
 
