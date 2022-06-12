@@ -50,9 +50,11 @@ pip install mediapipe opencv-python
 ```
 
 MediaPipe Site: [MediaPipe Link](https://google.github.io/mediapipe/)
+
 MediaPipe는 FaceDectect 이외에도 ObjectDetect, HandSkeleton 등 다양한 Pre-Train 된 Model을 제공한다.
 
 Reference Link: [FaceDetection_Default](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detection_default.py)
+
 위 링크는 MediaPipe에서 제공하는 파이썬 기반 FaceDetection의 초기 코드이다. 위 코드를 실행하면 미리 Pre-Train되어있기 때문에 얼굴 부분을 Detection해주는 것을 확인 할 수 있다.
 
 
