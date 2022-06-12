@@ -35,11 +35,11 @@
 
 Face Detection의 순서는 다음과 같다.
 
-​	Step 1. Webcam을 사용하여 사람의 얼굴을 분석하고 Detect한다.
+​		Step 1. Webcam을 사용하여 사람의 얼굴을 분석하고 Detect한다.
 
-​	Step 2. 얼굴 부분이 Detect된 Bounding Box의 좌표를 얻어 원본이미지에서 얼굴 부분만 추출한다.
+​		Step 2. 얼굴 부분이 Detect된 Bounding Box의 좌표를 얻어 원본이미지에서 얼굴 부분만 추출한다.
 
-​	Step 3. Pre-Train 된 모델을 사용하여 사람의 표정을 7개의 종류 중 하나로 분석한다.
+​		Step 3. Pre-Train 된 모델을 사용하여 사람의 표정을 7개의 종류 중 하나로 분석한다.
 
 ### Step 1
 
@@ -95,9 +95,30 @@ croppedImage = now_image[top:bottom, left:right]
 
 ### Step 3
 
+얼굴 표정을 인식하는 딥러닝 모델은 **DeepFace**에서 제공하는 Model을 사용했다. DeepFace는 사람의 표정을 분석하여 총 7개의 표정에 대해 각각의 확률를 비교한 뒤 가장 높은 확률의 표정을 출력한다.
 
+Deepface Library를 설치하는 방법은 cmd창에서 아래의 코드를 입력해주면 된다.   
 
-[Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detect.py)
+```python
+pip install deepface
+```
+
+DeepFace Github: [DeepFace Link](https://github.com/serengil/deepface)
+
+DeepFace는 다양한 검증된 모델들을 wrapping하고 있는 경량의 하이브리드 face recognition 프레임워크이다. 또한 "VGG-Face", "Facenet", "Facenet512", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace" 의 다양한 모델들을 제공한다. default는 VGG-Face를 제공한다.
+
+```python
+from deepface import DeepFace
+
+obj = DeepFace.analyze(img_path = "example_Img.jpg", actions = ['emotion'], enforce_detection= False)
+
+print(obj['dominant_emotion'])
+```
+
+위 코드를 입력하게 되면 example_Img에 대해서 표정을 분석하고 확률이 가장 높은 표정을 출력한다.  analyze 함수는 표정 뿐만아니라 표정에 대한 확률, 나이,  성별 등 다양한 값을 반환한다.
+
+Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detect.py)
+위 링크는 Step 1, 2, 3을 반영한 코드이다.
 
 
 
@@ -107,9 +128,6 @@ croppedImage = now_image[top:bottom, left:right]
 
 ```
 
-**Parameters**
-
-* p1
-* p2
+* 
 
 **Example code**
