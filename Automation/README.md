@@ -28,7 +28,9 @@
 
 
 ## Coordinate Generate
+먼저 ROS상의 좌표에 대해서 설명하겠다.
 
+좌표를 생성하는 방법은 다음과 같다.
 
 
 ## Face Detection
