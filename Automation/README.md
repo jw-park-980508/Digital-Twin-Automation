@@ -31,9 +31,10 @@ PART2
 ![part3](https://user-images.githubusercontent.com/107538917/173777014-e73b6871-d9d9-4506-8b74-14a2b4577dab.PNG)
 PART3
 
+<p align="center">
 ![image](https://user-images.githubusercontent.com/107538917/173785554-8bd86e44-f22d-4535-a011-2defd98e626b.png)
 Assemble
-
+</p>
 위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
 
 
