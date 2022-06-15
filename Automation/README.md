@@ -2,7 +2,7 @@
 
 ## Introduction
 
-이 Respository는 2202년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용이다.1
+이 Respository는 2202년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용이다.
 
 우리는 카메라를 사용하여 사람의 표정을 angry, disgust, fear, happy, sad, surprise, neutral 총 7개의 표정으로 분석하고 Manipulator를 사용하여 표정에 대한 이모티콘을 그려주는 프로젝트를 진행했다.
 
@@ -159,6 +159,6 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 ```
 
-* 
+* ​
 
 **Example code**
