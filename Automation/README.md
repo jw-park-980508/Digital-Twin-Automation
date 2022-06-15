@@ -62,11 +62,22 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 위 프로그램을 실행하기 위해 Python을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
 
-또한 INDY-10 (Manipulaor)를 동작시키기 위해 **Indy_utils**라는 Python library를 사용하였다. 
+또한 INDY-10 (Manipulaor)를 동작시키기 위해 **Indy_utils**라는 Python library를 사용하였다. Indy_utils의 설치 방법 및 사용방법 또한 아래의 Indy_utils에서 설명하겠다.
+
+## Indy_utils
+
+
 
 ## Coordinate Generate
+
 먼저 ROS상의 좌표에 대해서 설명하겠다.
-![image](https://user-images.githubusercontent.com/84506968/173516502-e679503f-b8ab-4c66-ad34-3b5d8ed337c7.png)
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/84506968/173516502-e679503f-b8ab-4c66-ad34-3b5d8ed337c7.png" width="400" height="400"/>
+</p>	
+
+
+
 위의 그림에서 각각의 축에 대해 증가함에 따라서 robot의 위치가 결정된다.
 
 좌표를 생성하기 위해 사용한 라이브러리는 openCV이다. 아래의 코드를 통하여 openCV를 설치할 수 있다.
@@ -77,14 +88,22 @@ pip install opencv-python
 
 먼저 좌표를 생성하기 위해서 opencv를 통해 그리고자 하는 이미지를 만들었다.
 
-![image](https://user-images.githubusercontent.com/84506968/173518427-f26f41bd-4afd-4169-a353-9e04dc1cce3d.png)
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/84506968/173518427-f26f41bd-4afd-4169-a353-9e04dc1cce3d.png" width="100" height="100"/>
+</p>	
 
 위와 같은 이미지 데이터를 통하여 좌표를 얻어냈다.
 
 로봇에서 한 획별로 따로 동작을 해야하기 때문에 각각의 획별로 좌표 생성함수를 이용해 좌표를 추출한다.
 
 원을 통해 좌표추출 방법을 설명하겠다.
-![image](https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png)
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png" width="800" height="400"/>
+</p>	
 
 이중 반복문을 통하여 가장 왼쪽의 점을 detect한다. 그 이후 화살표방향으로 좌표값을 저장한다. 이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다. 이 때 반원의 좌표만을 저장한다.
 다음 반복문에서는 나머지 반원의 좌표를 저장한다. 방법은 아래 반원과 유사하다.  
