@@ -30,6 +30,7 @@
 ## Coordinate Generate
 먼저 ROS상의 좌표에 대해서 설명하겠다.
 ![image](https://user-images.githubusercontent.com/84506968/173516502-e679503f-b8ab-4c66-ad34-3b5d8ed337c7.png)
+
 위의 그림에서 각각의 축에 대해 증가함에 따라서 robot의 위치가 결정된다.
 
 좌표를 생성하기 위해 사용한 라이브러리는 openCV이다. 아래의 코드를 통하여 openCV를 설치할 수 있다.
