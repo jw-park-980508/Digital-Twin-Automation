@@ -26,7 +26,7 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 아래 그림들(PART1,2,3)은 End - Effector를 구성하는 부품들이다.
 
-<img src="https://user-images.githubusercontent.com/107538917/173776826-fcde3fc6-2334-4f2b-a148-d40a5a303914.PNG" width="200" height="200"/>
+<img src="https://user-images.githubusercontent.com/107538917/173776826-fcde3fc6-2334-4f2b-a148-d40a5a303914.PNG", align = "right" width="200" height="200"/>
 
 **PART1**
 
