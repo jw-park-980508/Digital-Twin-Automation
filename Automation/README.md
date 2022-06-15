@@ -62,9 +62,39 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 위 프로그램을 실행하기 위해 Python을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
 
-또한 INDY-10 (Manipulaor)를 동작시키기 위해 **Indy_utils**라는 Python library를 사용하였다. Indy_utils의 설치 방법 및 사용방법 또한 아래의 Indy_utils에서 설명하겠다.
+또한 INDY-10 (Manipulaor)를 동작시키기 위해 **IndyDCP**라는 Python library를 사용하였다. Indy_utils의 설치 방법 및 사용방법 또한 아래의 IndyDCP에서 설명하겠다.
 
-## Indy_utils
+## IndyDCP
+
+Reference Link: [Neuromeka](http://docs.neuromeka.com/2.3.0/en/Python/section1/)
+
+IndyDCP는ROS를 사용하지 않고 Neruomeka에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. IndyDCP는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 같은 directory에 위치 시킨다.
+
+```python
+from indy_utils import indydcp_client as client
+
+robot_ip = "192.168.0.6"  # Robot (Indy10) IP
+robot_name = "NRMK-Indy10"  # Robot name (Indy10)indy
+
+# Create class object
+indy = client.IndyDCPClient(robot_ip, robot_name)
+
+indy.connect()
+```
+
+위 코드를 입력시 Indy-10 manipulator와 연결이 된다.
+
+
+
+```python
+indy.set_collision_level(5)
+indy.set_joint_vel_level(7)
+indy.set_task_vel_level(7)
+indy.set_joint_blend_radius(20)
+indy.set_task_blend_radius(0.2)
+```
+
+위 의 코드로 manupulator의 기능을 setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
 
 
 
@@ -102,7 +132,7 @@ pip install opencv-python
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png" width="800" height="400"/>
+<img src="https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png" width="600" height="300"/>
 </p>	
 
 이중 반복문을 통하여 가장 왼쪽의 점을 detect한다. 그 이후 화살표방향으로 좌표값을 저장한다. 이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다. 이 때 반원의 좌표만을 저장한다.
@@ -210,12 +240,63 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 
 
-### Function Name
+## ROS Drawing
 
-```text
+ROS 상에서 Drawing을 쉽게 하기 위해 정의한 함수들에 대해서 설명하겠다.
 
+
+
+##### draw_start()
+
+Go board marker start position from home
+
+```python
+def draw_start():
 ```
 
-* 
+**Example code**
+
+```python
+draw_start()
+```
+
+
+
+##### draw_csv()
+
+Draw with coordinate CSV
+
+```python
+def draw_csv(name,ratio,resolution,directory):
+```
+
+###### **Parameters**
+
+- **name**:  file name to draw
+- **ratio**:  Variables that control picture size
+- **resolution**: percentage of points to be drawn (shoud be integer, e.g 2=0.5 resolution)
+- **directory**: The name of the folder called emotion in the same location as the code
 
 **Example code**
+
+```python
+emotion = 'surprise'
+size = 0.005
+draw_csv('circle_rel',size,1,emotion)
+```
+
+
+
+##### go_home()
+
+Code added with 'indy.go home()' function and avoid ROS command conflict
+
+```python
+def go_home():
+```
+
+**Example code**
+
+```python
+go_home()
+```
