@@ -254,7 +254,7 @@ if emotion == 'angry':
 
 elif emotion == 'disgust':
   draw_start()
-  draw_csv('circle_rel',size,1,emotion)
+  draw_csv('circle_rel',size,1)
   print('draw circle_rel done')
 
   draw_start()
