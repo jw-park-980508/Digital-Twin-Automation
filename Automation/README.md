@@ -15,11 +15,28 @@
 
 
 ### HardWare
+그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 않을 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 endeffector를 디자인 하였다. 
+
+solidworks tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+
+아래 그림들(PART1,2,3)은 endeffector를 구성하는 부품들이다.
+
+![part1](https://user-images.githubusercontent.com/107538917/173776826-fcde3fc6-2334-4f2b-a148-d40a5a303914.PNG
+PART1
+
+![part2](https://user-images.githubusercontent.com/107538917/173776959-6cf4fa07-5a8f-45fd-8593-8ef195882312.PNG)
+PART2
 
 
-매니퓰레이터 모델은 **INDY-10 (Neuromeka)**로 로봇 제어를 위한 indy XX library를 사용했다.
+![part3](https://user-images.githubusercontent.com/107538917/173777014-e73b6871-d9d9-4506-8b74-14a2b4577dab.PNG)
+PART3
 
-hello
+![image](https://user-images.githubusercontent.com/107538917/173783644-36fbec6d-2341-4cc2-906d-b0adc42dd1bb.png)
+Assemble
+
+위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
+
+
 
 ### SoftWare
 
