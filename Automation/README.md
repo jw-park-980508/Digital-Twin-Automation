@@ -96,7 +96,23 @@ indy.set_task_blend_radius(0.2)
 
 위 의 코드로 manupulator의 기능을 setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
 
+ROS를 동작하기 위해서는 다음과 같은 충돌을 방지하는 코드가 필요하다
 
+```python
+indy.go_home()
+
+key = ['ready', 'emergency', 'collision', 'error', 'busy', 'movedone', 'home', 'zero', 'resetting', 'teaching', 'direct_teaching']
+
+while True:
+	status = indy.get_robot_status()
+    sleep(0.2)
+	if status[key[5]]==1 :
+        break
+```
+
+**Status**에는 위의 text들이 dictionary형태로 저장되어있다.  따라서 key[5]는 movedone을 의미한다. 
+
+**!주의!** 움직임 끝나지 않은 상태에서 다른 명령을 주게 되면 해당 LIbrary에서 task가 꼬이게 되는 일이 발생한다. 
 
 ## Coordinate Generate
 
@@ -242,7 +258,7 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 ## ROS Drawing
 
-ROS 상에서 Drawing을 쉽게 하기 위해 정의한 함수들에 대해서 설명하겠다.
+ROS 상에서 Drawing을 쉽게 하기 위해 정의한 함수들에 대해서 설명하겠다. 
 
 
 
