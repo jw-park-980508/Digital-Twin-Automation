@@ -27,9 +27,14 @@ solidworks tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 
 
+
+
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107538917/173785554-8bd86e44-f22d-4535-a011-2defd98e626b.png">
-</p>																		**Assemble**
+</p>																		
+
+​																							**Assemble**
 
 위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
 
