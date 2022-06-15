@@ -20,7 +20,7 @@ Flag = False
 def draw_csv(name,ratio,resolution,directory):
     # resolution : should be integer (ex. 2 = 0.5 resolution)
     # should control Z coordinate
-    data = pd.read_csv('/emotion'+directory+'/'+name+'.csv')
+    data = pd.read_csv('emotion/'+directory+'/'+name+'.csv')
     data = ratio*data
     l = len(data)
     data = data[['x','y']][0:l:resolution]
@@ -33,8 +33,10 @@ def draw_csv(name,ratio,resolution,directory):
         sleep(0.2)
         if status[key[5]]==1 :
             break
-
-    t_pos_rel = [0, 0, -0.0075, 0, 0, 0] # x,y,z그리고 각도?
+        
+    # offset = 0.011
+    offset = 0.0181  #no case
+    t_pos_rel = [0, 0, -offset, 0, 0, 0] # x,y,z그리고 각도?
     indy.task_move_by(t_pos_rel)
 
     while True:
@@ -54,7 +56,7 @@ def draw_csv(name,ratio,resolution,directory):
                 if status[key[5]]==1 :
                     break
     
-    t_pos_rel = [0, 0, 0.0075, 0, 0, 0]
+    t_pos_rel = [0, 0, offset, 0, 0, 0]
     return None
 
 def draw_start():
@@ -67,7 +69,7 @@ def draw_start():
         if status[key[5]]==1 :
             break
 
-    t_pos_rel = [0.20, -0.30, -0.34, 0, 48, 0] # x,y,z그리고 각도?
+    t_pos_rel = [0.20, -0.30, -0.31, 0, 48, 0] # x,y,z그리고 각도?
     indy.task_move_by(t_pos_rel)
 
     while True:
@@ -173,7 +175,6 @@ cap.release()
 
 robot_ip = "192.168.0.6"  # Robot (Indy) IP
 robot_name = "NRMK-Indy10"  # Robot name (Indy7)indy
-# robot_name = "NRMK-IndyRP2"  # Robot name (IndyRP2)
 
 # Create class object
 indy = client.IndyDCPClient(robot_ip, robot_name)
@@ -181,8 +182,8 @@ indy = client.IndyDCPClient(robot_ip, robot_name)
 indy.connect()
 
 indy.set_collision_level(5)
-indy.set_joint_vel_level(3)
-indy.set_task_vel_level(3)
+indy.set_joint_vel_level(7)
+indy.set_task_vel_level(7)
 indy.set_joint_blend_radius(20)
 indy.set_task_blend_radius(0.2)
 
@@ -224,12 +225,13 @@ print(obj1['dominant_emotion'])
 
 emotion = obj1['dominant_emotion']
 probability = obj1['emotion'][obj1['dominant_emotion']]
-if probability>50:
-  size = 0.005
-else :
-  size = 0.004
+# if probability>50:
+#   size = 0.005
+# else :
+#   size = 0.004
 
-emotion = 'angry'
+# emotion = 'surprise'
+size = 0.005
 
 if emotion == 'angry':
   draw_start()
@@ -237,15 +239,15 @@ if emotion == 'angry':
   print('draw circle_rel done')
 
   draw_start()
-  draw_csv('angry1_rel',size,1,emotion)
+  draw_csv('angry_1_rel',size,1,emotion)
   print('draw happy1 done')
 
   draw_start()
-  draw_csv('angry2_rel',size,1,emotion)
+  draw_csv('angry_2_rel',size,1,emotion)
   print('draw happy2 done')
 
   draw_start()
-  draw_csv('angry3_rel',size,1,emotion)
+  draw_csv('angry_3_rel',size,1,emotion)
   print('draw happy3 done')
 
   go_home()
@@ -264,14 +266,14 @@ elif emotion == 'disgust':
   print('draw happy2 done')
 
   draw_start()
-  draw_csv('disgust_2_rel',size,1,emotion)
+  draw_csv('disgust_3_rel',size,1,emotion)
   print('draw happy3 done')
 
   go_home()
 
 elif emotion == 'fear':
   draw_start()
-  draw_csv('circle_rel',size,1)
+  draw_csv('circle_rel',size,1,emotion)
   print('draw circle_rel done')
 
   draw_start()
@@ -391,3 +393,5 @@ elif emotion == 'surprise':
   print('draw happy3 done')
 
   go_home()
+  
+indy.disconnect()
