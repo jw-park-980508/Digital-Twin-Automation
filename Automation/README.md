@@ -28,8 +28,37 @@
 
 
 ## Coordinate Generate
+먼저 ROS상의 좌표에 대해서 설명하겠다.
+![image](https://user-images.githubusercontent.com/84506968/173516502-e679503f-b8ab-4c66-ad34-3b5d8ed337c7.png)
+위의 그림에서 각각의 축에 대해 증가함에 따라서 robot의 위치가 결정된다.
 
+좌표를 생성하기 위해 사용한 라이브러리는 openCV이다. 아래의 코드를 통하여 openCV를 설치할 수 있다.
+```text
+pip install opencv-python
+```
+좌표를 생성하는 방법은 다음과 같다.
 
+먼저 좌표를 생성하기 위해서 opencv를 통해 그리고자 하는 이미지를 만들었다.
+
+![image](https://user-images.githubusercontent.com/84506968/173518427-f26f41bd-4afd-4169-a353-9e04dc1cce3d.png)
+
+위와 같은 이미지 데이터를 통하여 좌표를 얻어냈다.
+
+로봇에서 한 획별로 따로 동작을 해야하기 때문에 각각의 획별로 좌표 생성함수를 이용해 좌표를 추출한다.
+
+원을 통해 좌표추출 방법을 설명하겠다.
+![image](https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png)
+
+이중 반복문을 통하여 가장 왼쪽의 점을 detect한다. 그 이후 화살표방향으로 좌표값을 저장한다. 이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다. 이 때 반원의 좌표만을 저장한다.
+다음 반복문에서는 나머지 반원의 좌표를 저장한다. 방법은 아래 반원과 유사하다.  
+
+이렇게 정의한 함수의 사용예제는 다음과 같다.
+```python
+gen_rel_coordinate(img, 'circle')
+gen_rel_coordinate_noncircle(img, 'circle')
+```
+img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
+하지만 x축별로 한 값만을 지정하기 때문에 I의 형태는 좌표로 생성할 수 없는 문제가 존재한다.
 
 ## Face Detection
 
@@ -43,10 +72,11 @@ Face Detection의 순서는 다음과 같다.
 
 ### Step 1
 
-Webcam을 사용한 FaceDetection은 **MediaPipe**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Cmd창에서 아래와 같은 코드를 입력하여 두 Library를 설치한다.
+Webcam을 사용한 FaceDetection은 **
+**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Cmd창에서 아래와 같은 코드를 입력하여 Mediapipe를 설치한다.
 
 ```text
-pip install mediapipe opencv-python
+pip install mediapipe
 ```
 
 MediaPipe Site: [MediaPipe Link](https://google.github.io/mediapipe/)
@@ -129,6 +159,6 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 ```
 
-* 
+* ​
 
 **Example code**
