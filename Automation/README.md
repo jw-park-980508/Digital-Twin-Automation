@@ -57,7 +57,9 @@ pip install opencv-python
 gen_rel_coordinate(img, 'circle')
 gen_rel_coordinate_noncircle(img, 'circle')
 ```
-img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
+[Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Coordinate%20Generator.ipynb)
+
+이 코드는 img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
 하지만 x축별로 한 값만을 지정하기 때문에 I의 형태는 좌표로 생성할 수 없는 문제가 존재한다.
 
 ## Face Detection
@@ -72,8 +74,7 @@ Face Detection의 순서는 다음과 같다.
 
 ### Step 1
 
-Webcam을 사용한 FaceDetection은 **
-**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Cmd창에서 아래와 같은 코드를 입력하여 Mediapipe를 설치한다.
+Webcam을 사용한 FaceDetection은 **MediaPipe**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Coordinate Generate에 단계에서 openCV를 미리 설치해 두었기 때문에 Cmd창에서 아래와 같은 코드를 입력하여 Mediapipe만 설치한다.
 
 ```text
 pip install mediapipe
@@ -159,6 +160,6 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 ```
 
-* ​
+* 
 
 **Example code**
