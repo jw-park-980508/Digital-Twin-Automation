@@ -153,18 +153,68 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 
 
-### Function Name
 
-```text
-
-```
-
-* ​
-
-**Example code**
 
 
 
 ## ROS Drawing
 
-ROS 상에서 좌표를 따라서 그리는 것은 다음과 같다.
+ROS 상에서 Drawing을 쉽게 하기 위해 정의한 함수들에 대해서 설명하겠다.
+
+
+
+##### draw_start()
+
+Go board marker start position from home
+
+```python
+def draw_start():
+```
+
+**Example code**
+
+```python
+draw_start()
+```
+
+
+
+##### draw_csv()
+
+Draw with coordinate CSV
+
+```python
+def draw_csv(name,ratio,resolution,directory):
+```
+
+###### **Parameters**
+
+- **name**:  file name to draw
+- **ratio**:  Variables that control picture size
+- **resolution**: percentage of points to be drawn (shoud be integer, e.g 2=0.5 resolution)
+- **directory**: The name of the folder called emotion in the same location as the code
+
+**Example code**
+
+```python
+emotion = 'surprise'
+size = 0.005
+draw_csv('circle_rel',size,1,emotion)
+```
+
+
+
+##### go_home()
+
+Code added with 'indy.go home()' function and avoid ROS command conflict
+
+```python
+def go_home():
+```
+
+**Example code**
+
+```python
+go_home()
+```
+
