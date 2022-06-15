@@ -53,11 +53,11 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 
 
-### SoftWare
+### **SoftWare**
 
-또한 표정 분석을 위해 mediapipe library 및 DeepFace library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Face Detection Part에서 설명하겠다.
+위 프로그램을 실행하기 위해 Python을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
 
-
+또한 INDY-10 (Manipulaor)를 동작시키기 위해 **Indy_utils**라는 Python library를 사용하였다. 
 
 ## Coordinate Generate
 먼저 ROS상의 좌표에 대해서 설명하겠다.
