@@ -18,7 +18,7 @@
 
 #### ◆  **INDY-10 (Neuromeka)**
 
-<img src="https://user-images.githubusercontent.com/84221531/173846702-a0c6fdae-8d2a-4835-be63-b905e49f81d3.png" width="200" height="200"/> 
+<img src="https://user-images.githubusercontent.com/84221531/173846702-a0c6fdae-8d2a-4835-be63-b905e49f81d3.png" align = "center" width="400" height="600"/> 
 
 #### ◆ End-Effector
 
