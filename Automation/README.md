@@ -15,11 +15,16 @@
 
 
 ### HardWare
-그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 않을 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 endeffector를 디자인 하였다. 
 
-solidworks tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+#### ◆  **INDY-10 (Neuromeka)**
 
-아래 그림들(PART1,2,3)은 endeffector를 구성하는 부품들이다.
+#### ◆ End-Effector
+
+그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 않을 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 End - Effector를 디자인 하였다. 
+
+Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+
+아래 그림들(PART1,2,3)은 End - Effector를 구성하는 부품들이다.
 
 <img src="https://user-images.githubusercontent.com/107538917/173776826-fcde3fc6-2334-4f2b-a148-d40a5a303914.PNG" width="200" height="200"/>
 
@@ -42,7 +47,7 @@ solidworks tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 <img src="https://user-images.githubusercontent.com/107538917/173785554-8bd86e44-f22d-4535-a011-2defd98e626b.png">
 </p>																		
 
-​																							**Assemble**
+​																							 **Assemble**
 
 위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
 
