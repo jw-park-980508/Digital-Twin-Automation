@@ -230,7 +230,7 @@ probability = obj1['emotion'][obj1['dominant_emotion']]
 # else :
 #   size = 0.004
 
-# emotion = 'surprise'
+emotion = 'neutral'
 size = 0.005
 
 if emotion == 'angry':
@@ -240,15 +240,15 @@ if emotion == 'angry':
 
   draw_start()
   draw_csv('angry_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw angry1 done')
 
   draw_start()
   draw_csv('angry_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw angry2 done')
 
   draw_start()
   draw_csv('angry_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw angry3 done')
 
   go_home()
 
@@ -259,15 +259,15 @@ elif emotion == 'disgust':
 
   draw_start()
   draw_csv('disgust_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw disgust1 done')
 
   draw_start()
   draw_csv('disgust_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw disgust2 done')
 
   draw_start()
   draw_csv('disgust_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw disgust3 done')
 
   go_home()
 
@@ -278,23 +278,23 @@ elif emotion == 'fear':
 
   draw_start()
   draw_csv('fear_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw fear1 done')
 
   draw_start()
   draw_csv('fear_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw fear2 done')
 
   draw_start()
   draw_csv('fear_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw fear3 done')
   
   draw_start()
   draw_csv('fear_4_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw fear4 done')
 
   draw_start()
   draw_csv('fear_5_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw fear5 done')
 
   go_home()
 
@@ -324,15 +324,15 @@ elif emotion == 'neutral':
 
   draw_start()
   draw_csv('neutral_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw neutral1 done')
 
   draw_start()
   draw_csv('neutral_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw neutral2 done')
 
   draw_start()
   draw_csv('neutral_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw neutral3 done')
 
   go_home()
 
@@ -343,31 +343,31 @@ elif emotion == 'sad':
 
   draw_start()
   draw_csv('sad_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw sad1 done')
 
   draw_start()
   draw_csv('sad_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw sad2 done')
 
   draw_start()
   draw_csv('sad_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw sad3 done')
   
   draw_start()
   draw_csv('sad_4_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw sad4 done')
 
   draw_start()
   draw_csv('sad_5_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw sad5 done')
 
   draw_start()
   draw_csv('sad_6_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw sad6 done')
   
   draw_start()
   draw_csv('sad_7_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw sad7 done')
 
   go_home()
 
@@ -378,19 +378,19 @@ elif emotion == 'surprise':
 
   draw_start()
   draw_csv('surprise_1_rel',size,1,emotion)
-  print('draw happy1 done')
+  print('draw surprise1 done')
 
   draw_start()
   draw_csv('surprise_2_rel',size,1,emotion)
-  print('draw happy2 done')
+  print('draw surprise2 done')
 
   draw_start()
   draw_csv('surprise_3_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw surprise3 done')
   
   draw_start()
   draw_csv('surprise_4_rel',size,1,emotion)
-  print('draw happy3 done')
+  print('draw surprise4 done')
 
   go_home()
   
