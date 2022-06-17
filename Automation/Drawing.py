@@ -230,7 +230,6 @@ probability = obj1['emotion'][obj1['dominant_emotion']]
 # else :
 #   size = 0.004
 
-emotion = 'neutral'
 size = 0.005
 
 if emotion == 'angry':
