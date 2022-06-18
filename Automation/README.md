@@ -1,12 +1,12 @@
-# Automation
+# Classification of 7 facial expressions &                      Drawing face emoticons with Manipulator
 
-## Introduction
+## 1. Introduction
 
 이 Respository는 2202년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용이다.
 
 우리는 카메라를 사용하여 사람의 표정을 angry, disgust, fear, happy, sad, surprise, neutral 총 7개의 표정으로 분석하고 Manipulator를 사용하여 표정에 대한 이모티콘을 그려주는 프로젝트를 진행했다.
 
-### Flow Chart
+### 1) Flow Chart
 
 아래 그림과 같은 순서로 프로젝트를 진행했다. 
 
@@ -14,13 +14,16 @@
 
 
 
-### HardWare
+### 2) HardWare
 
-#### ◆  **INDY-10 (Neuromeka)**
+#### - **INDY-10 (Neuromeka)**
+
+
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/84221531/173846702-a0c6fdae-8d2a-4835-be63-b905e49f81d3.png" width="400" height="600"/> 
 </p>
-#### ◆ End-Effector
+#### - End-Effector
 
 그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 않을 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 End - Effector를 디자인 하였다. 
 
@@ -60,17 +63,23 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 
 
-### **SoftWare**
+### 3) **SoftWare**
 
-위 프로그램을 실행하기 위해 Python을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
+위 프로그램을 실행하기 위해 Python 3.x 을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
 
 또한 INDY-10 (Manipulaor)를 동작시키기 위해 **IndyDCP**라는 Python library를 사용하였다. Indy_utils의 설치 방법 및 사용방법 또한 아래의 IndyDCP에서 설명하겠다.
 
-## IndyDCP
+
+
+## 2. Algorithm
+
+처음에 언급한 그림을 그리는 Manipulator를 구현하기 위해 사용한 Library 및 Algorithm에 대해 설명하겠다.
+
+### 1) IndyDCP
 
 Reference Link: [Neuromeka](http://docs.neuromeka.com/2.3.0/en/Python/section1/)
 
-IndyDCP는ROS를 사용하지 않고 Neruomeka에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. IndyDCP는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 같은 directory에 위치 시킨다.
+IndyDCP는ROS를 사용하지 않고 Neruomeka에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. IndyDCP는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 같은 Directory에 위치 시킨다.
 
 ```python
 from indy_utils import indydcp_client as client
@@ -84,7 +93,7 @@ indy = client.IndyDCPClient(robot_ip, robot_name)
 indy.connect()
 ```
 
-위 코드를 입력시 Indy-10 manipulator와 연결이 된다.
+위 코드를 입력시 Indy-10 Manipulator와 연결이 된다.
 
 
 
@@ -96,9 +105,9 @@ indy.set_joint_blend_radius(20)
 indy.set_task_blend_radius(0.2)
 ```
 
-위 의 코드로 manupulator의 기능을 setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
+위 의 코드로 Manipulator의 기능을 Setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
 
-ROS를 동작하기 위해서는 다음과 같은 충돌을 방지하는 코드가 필요하다
+
 
 ```python
 indy.go_home()
@@ -112,11 +121,13 @@ while True:
         break
 ```
 
-**Status**에는 위의 text들이 dictionary형태로 저장되어있다.  따라서 key[5]는 movedone을 의미한다. 
+ROS를 동작하기 위해서는 위와 같은 충돌을 방지하는 코드가 필요하다
 
-**!주의!** 움직임 끝나지 않은 상태에서 다른 명령을 주게 되면 해당 LIbrary에서 task가 꼬이게 되는 일이 발생한다. 
+**Status**에는 위의 Text들이 Dictionary형태로 저장되어있다.  따라서 key[5]는 movedone을 의미한다. 
 
-## Coordinate Generate
+**!주의!** 움직임 끝나지 않은 상태에서 다른 명령을 주게 되면 해당 Library에서 Task가 꼬이게 되는 일이 발생한다. 
+
+### 2) Coordinate Generate
 
 먼저 ROS상의 좌표에 대해서 설명하겠다.
 
@@ -166,7 +177,9 @@ gen_rel_coordinate_noncircle(img, 'circle')
 이 코드는 img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
 하지만 x축별로 한 값만을 지정하기 때문에 I의 형태는 좌표로 생성할 수 없는 문제가 존재한다.
 
-## Face Detection
+
+
+### 3) Face Detection
 
 Face Detection의 순서는 다음과 같다.
 
@@ -176,7 +189,9 @@ Face Detection의 순서는 다음과 같다.
 
 ​		Step 3. Pre-Train 된 모델을 사용하여 사람의 표정을 7개의 종류 중 하나로 분석한다.
 
-### Step 1
+
+
+#### - Step 1
 
 Webcam을 사용한 FaceDetection은 **MediaPipe**라는 Library에서 제공한다.  MediaPipe는 Python openCV 기반의 Library이기 때문에 Python openCV를 함께 설치 해주어야 한다. Coordinate Generate에 단계에서 openCV를 미리 설치해 두었기 때문에 Cmd창에서 아래와 같은 코드를 입력하여 Mediapipe만 설치한다.
 
@@ -194,7 +209,7 @@ Reference Link: [FaceDetection_Default](https://github.com/jw-park-980508/Digita
 
 
 
-### Step 2
+#### - Step 2
 
 MediaPipe는 Bounding Box의 좌표를 제공한다. 제공하는 좌표는 Bounding Box의 Xmin, Ymin, Width, height 총 4개의 좌표를 제공한다. 또한 0~1로 각 좌표들이 Normalize하여 제공하다.
 
@@ -228,7 +243,7 @@ croppedImage = now_image[top:bottom, left:right]
 
 
 
-### Step 3
+#### - Step 3
 
 얼굴 표정을 인식하는 딥러닝 모델은 **DeepFace**에서 제공하는 Model을 사용했다. DeepFace는 사람의 표정을 분석하여 총 7개의 표정에 대해 각각의 확률를 비교한 뒤 가장 높은 확률의 표정을 출력한다.
 
@@ -241,6 +256,8 @@ pip install deepface
 DeepFace Github: [DeepFace Link](https://github.com/serengil/deepface)
 
 DeepFace는 다양한 검증된 모델들을 wrapping하고 있는 경량의 하이브리드 face recognition 프레임워크이다. 또한 "VGG-Face", "Facenet", "Facenet512", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace" 의 다양한 모델들을 제공한다. default는 VGG-Face를 제공한다.
+
+
 
 ```python
 from deepface import DeepFace
@@ -258,13 +275,13 @@ Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-
 
 
 
-## ROS Drawing
+## 3. Function
 
 ROS 상에서 Drawing을 쉽게 하기 위해 정의한 함수들에 대해서 설명하겠다. 
 
 
 
-##### draw_start()
+### 1) draw_start()
 
 Go board marker start position from home
 
@@ -280,7 +297,7 @@ draw_start()
 
 
 
-##### draw_csv()
+### 2) draw_csv()
 
 Draw with coordinate CSV
 
@@ -288,7 +305,7 @@ Draw with coordinate CSV
 def draw_csv(name,ratio,resolution,directory):
 ```
 
-###### **Parameters**
+**Parameters**
 
 - **name**:  file name to draw
 - **ratio**:  Variables that control picture size
@@ -305,7 +322,7 @@ draw_csv('circle_rel',size,1,emotion)
 
 
 
-##### go_home()
+### 3) go_home()
 
 Code added with 'indy.go home()' function and avoid ROS command conflict
 
@@ -318,3 +335,18 @@ def go_home():
 ```python
 go_home()
 ```
+
+
+
+## 4. Demonstration
+
+### 1) [Demo Video](https://www.youtube.com/watch?v=NvrPuWp_uHM)
+
+### 2) [Final Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Drawing.py)
+
+
+
+## 5. Future
+
+
+

@@ -61,22 +61,7 @@ with mp_face_detection.FaceDetection(
         if Flag == True:
           person_sec += 1 #사람이 detection된 프레임의 수 1초에 33 frame
           print('person_sec: ',person_sec)
-
-        # if person_sec == 66:
-        #   Flag = False
-        #   save_image = croppedImage
-        #   person_sec = 0
-        #   print('Image Captured!')
           
-        #   try:
-        #       obj = DeepFace.analyze(img_path = save_image, actions = ['emotion'], enforce_detection= False)
-        #       print('Probability =',obj['emotion'][obj['dominant_emotion']])
-        #       print(obj['dominant_emotion'])
-        #   except:
-        #       print('image should be clear')
-          
-          
-
     else:
       person_sec = 0
       Flag = False
