@@ -23,7 +23,7 @@
 <p align="center">
 <img src="https://user-images.githubusercontent.com/84221531/173846702-a0c6fdae-8d2a-4835-be63-b905e49f81d3.png" width="400" height="600"/> 
 </p>
-#### - End-Effector
+#### - **End-Effector**
 
 그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 않을 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 End - Effector를 디자인 하였다. 
 
