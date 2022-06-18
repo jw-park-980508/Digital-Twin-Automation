@@ -272,7 +272,7 @@ print(obj['dominant_emotion'])
 
 Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/face_detect.py)
 
-위 링크는 Step 1, 2, 3을 반영한 코드이다.
+위 링크는 Step 1, 2, 3을 반영한 코드이다. 카메라가 켜진 상태에서 C를 누르게 되면 66프레임 이후 화면을 캡쳐하여 얼굴의 표정을 분석하는 방식이다.
 
 
 
