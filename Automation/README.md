@@ -127,6 +127,8 @@ ROS를 동작하기 위해서는 위와 같은 충돌을 방지하는 코드가 
 
 **!주의!** 움직임 끝나지 않은 상태에서 다른 명령을 주게 되면 해당 Library에서 Task가 꼬이게 되는 일이 발생한다. 
 
+
+
 ### 2) Coordinate Generate
 
 먼저 ROS상의 좌표에 대해서 설명하겠다.
@@ -137,10 +139,10 @@ ROS를 동작하기 위해서는 위와 같은 충돌을 방지하는 코드가 
 
 
 
-위의 그림에서 각각의 축에 대해 증가함에 따라서 robot의 위치가 결정된다.
+위의 그림에서 각각의 축에 대해 증가함에 따라서 Robot의 위치가 결정된다.
 
 좌표를 생성하기 위해 사용한 라이브러리는 openCV이다. 아래의 코드를 통하여 openCV를 설치할 수 있다.
-```text
+```python
 pip install opencv-python
 ```
 좌표를 생성하는 방법은 다음과 같다.
@@ -163,8 +165,7 @@ pip install opencv-python
 <p align="center">
 <img src="https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png" width="600" height="300"/>
 </p>	
-
-이중 반복문을 통하여 가장 왼쪽의 점을 detect한다. 그 이후 화살표방향으로 좌표값을 저장한다. 이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다. 이 때 반원의 좌표만을 저장한다.
+이중 반복문을 통하여 가장 왼쪽의 점을 Detect한다. 그 이후 화살표방향으로 좌표값을 저장한다. 이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다. 이 때 반원의 좌표만을 저장한다.
 다음 반복문에서는 나머지 반원의 좌표를 저장한다. 방법은 아래 반원과 유사하다.  
 
 이렇게 정의한 함수의 사용예제는 다음과 같다.
@@ -172,9 +173,9 @@ pip install opencv-python
 gen_rel_coordinate(img, 'circle')
 gen_rel_coordinate_noncircle(img, 'circle')
 ```
-[Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Coordinate%20Generator.ipynb)
+[Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Coordinate%20Generator.ipynb)
 
-이 코드는 img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
+이 코드는 Img데이터와 csv파일의 이름을 지정해주면 이에 해당하는 좌표를 지닌 csv파일을 생성해준다.
 하지만 x축별로 한 값만을 지정하기 때문에 I의 형태는 좌표로 생성할 수 없는 문제가 존재한다.
 
 
@@ -203,7 +204,7 @@ MediaPipe Site: [MediaPipe Link](https://google.github.io/mediapipe/)
 
 MediaPipe는 FaceDectect 이외에도 ObjectDetect, HandSkeleton 등 다양한 Pre-Train 된 Model을 제공한다.
 
-Reference Link: [FaceDetection_Default](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detection_default.py)
+Reference Link: [FaceDetection_Default](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/face_detection_default.py)
 
 위 링크는 MediaPipe에서 제공하는 파이썬 기반 FaceDetection의 초기 코드이다. 위 코드를 실행하면 미리 Pre-Train되어있기 때문에 얼굴 부분을 Detection해주는 것을 확인 할 수 있다.
 
@@ -220,7 +221,7 @@ width = detection.location_data.relative_bounding_box.width * now_image.shape[1]
 height = detection.location_data.relative_bounding_box.height * now_image.shape[0]
 ```
 
-위 작업을 통해 Normailze된 좌표를 원래의 좌표로 수정하였다. eq) Image Szie: 640X480
+위 작업을 통해 Normailze된 좌표를 원래의 좌표로 수정하였다. eq) Image Size: 640X480
 
 
 
@@ -269,7 +270,7 @@ print(obj['dominant_emotion'])
 
 위 코드를 입력하게 되면 example_Img에 대해서 표정을 분석하고 확률이 가장 높은 표정을 출력한다.  analyze 함수는 표정 뿐만아니라 표정에 대한 확률, 나이,  성별 등 다양한 값을 반환한다.
 
-Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/face_detect.py)
+Reference Link: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/face_detect.py)
 
 위 링크는 Step 1, 2, 3을 반영한 코드이다.
 
@@ -342,7 +343,7 @@ go_home()
 
 ### 1) [Demo Video](https://www.youtube.com/watch?v=NvrPuWp_uHM)
 
-### 2) [Final Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Drawing.py)
+### 2) [Final Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Drawing.py)
 
 
 
