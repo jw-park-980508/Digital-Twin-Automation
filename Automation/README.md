@@ -46,7 +46,7 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 <img src="https://user-images.githubusercontent.com/107538917/173776959-6cf4fa07-5a8f-45fd-8593-8ef195882312.PNG" width="200" height="200"/>
 
-&**PART3**
+&nbsp;**PART3**
 
 
 
