@@ -69,7 +69,7 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 ### 3) **SoftWare**
 
 
-위 프로그램을 실행하기 위해 Python 3.x 을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
+위 프로그램을 실행하기 위해 VScode 기반 Python 3.x 을 사용했고, 표정 분석을 위해 **MediaPipe** library 및 **DeepFace** library를 사용했다. 두 library의 설치 방법 및 사용방법은 아래의 Coordinate, Face Detection Part에서 설명하겠다.
 
 또한 INDY-10 (Manipulaor)를 동작시키기 위해 **IndyDCP**라는 Python library를 사용하였다. Indy_utils의 설치 방법 및 사용방법 또한 아래의 IndyDCP에서 설명하겠다.
 
