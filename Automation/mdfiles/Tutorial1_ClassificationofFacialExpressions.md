@@ -2,15 +2,15 @@
 
 # Tutorial1 : Classification of facial expressions
 
-본 튜토리얼은 프로젝트 과정 중 얼굴 인식 및 표정 분류를 위한 튜토리얼이다.
+본 튜토리얼은 프로젝트 과정 중 **얼굴 인식 및 표정 분류**를 위한 튜토리얼이다.
 
 ### Overview
 
 Face Detection의 순서는 다음과 같다.
 
-Step 1. Mediapipe를 통해 얼굴부분의 bounding box를 캡쳐한다.
+Step 1. **Mediapipe**를 통해 얼굴부분의 **bounding box**를 캡쳐한다.
 
-Step 2. Deepface를 통해 표정을 분석한다.
+Step 2. **Deepface**를 통해 표정을 분석한다.
 
 
 
@@ -18,7 +18,7 @@ Step 2. Deepface를 통해 표정을 분석한다.
 
 
 ### Step1 : 얼굴부분 boundig box이미지 생성
-MediaPipe는 Bounding Box의 좌표를 제공한다. 제공하는 좌표는 Bounding Box의 Xmin, Ymin, Width, height 총 4개의 좌표를 제공한다. 또한 0~1로 각 좌표들이 Normalize하여 제공하다.
+MediaPipe는 Bounding Box의 좌표를 제공한다. 제공하는 **좌표는 Bounding Box의 Xmin, Ymin, Width, height** 총 4개의 좌표를 제공한다. 또한 0~1로 각 좌표들이 **Normalize**하여 제공하다.
 
 ```python
 xmin = detection.location_data.relative_bounding_box.xmin * now_image.shape[1]
@@ -36,7 +36,7 @@ right=int(xmin + width)
 bottom=int(ymin + height)
 ```
 
-위 작업을 통해 Bounding Box의 각 모서리 좌표를 얻었다. MediaPipe에서 제공하는 좌표값은 모두 float형태로 제공하기 때문에 Integer형태로 변화해 주었다.
+위 작업을 통해 Bounding Box의 각 모서리 좌표를 얻었다. MediaPipe에서 제공하는 좌표값은 모두 **float형태**로 제공하기 때문에 **Integer형태**로 변화해 주었다.
 
 ```python
 croppedImage = now_image[top:bottom, left:right]
@@ -51,7 +51,7 @@ croppedImage = now_image[top:bottom, left:right]
 ### Step2 : Deepface를 통한 표정분석
 얼굴 표정을 인식하는 딥러닝 모델은 **DeepFace**에서 제공하는 Model을 사용했다. DeepFace는 사람의 표정을 분석하여 총 7개의 표정에 대해 각각의 확률를 비교한 뒤 가장 높은 확률의 표정을 출력한다.
 
-DeepFace는 다양한 검증된 모델들을 wrapping하고 있는 경량의 하이브리드 face recognition 프레임워크이다. 또한 "VGG-Face", "Facenet", "Facenet512", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace" 의 다양한 모델들을 제공한다. default는 VGG-Face를 제공한다.
+DeepFace는 다양한 검증된 모델들을 wrapping하고 있는 경량의 하이브리드 face recognition 프레임워크이다. 또한 **"VGG-Face", "Facenet", "Facenet512", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace"** 의 다양한 모델들을 제공한다. default는 **VGG-Face**를 제공한다.
 
 DeepFace Github: [DeepFace Link](https://github.com/serengil/deepface)
 
@@ -63,7 +63,7 @@ obj = DeepFace.analyze(img_path = "example_Img.jpg", actions = ['emotion'], enfo
 print(obj['dominant_emotion'])
 ```
 
-위 코드를 입력하게 되면 example_Img에 대해서 표정을 분석하고 확률이 가장 높은 표정을 출력한다.  analyze 함수는 표정 뿐만아니라 표정에 대한 확률, 나이,  성별 등 다양한 값을 반환한다.
+위 코드를 입력하게 되면 example_Img에 대해서 표정을 분석하고 확률이 가장 높은 표정을 출력한다.  analyze 함수는 표정 뿐만아니라 표정에 대한 **확률, 나이,  성별** 등 다양한 값을 반환한다.
 
 <br/>
 
