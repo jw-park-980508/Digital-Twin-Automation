@@ -1,6 +1,6 @@
 
 
-# Tutorial2 : Generate coordinate
+# Tutorial4 : End-Effector
 
 본 튜토리얼은 end effector를 3D프린터로 출력하기 위해 필요한 튜토리얼이다.
 
