@@ -26,9 +26,9 @@ step 4. Home position으로 돌아간다.
 
 ### Step1 : 로봇 연결 
 
-Reference Link: [Neuromeka](http://docs.neuromeka.com/2.3.0/en/Python/section1/)
+**Reference Link: [Neuromeka](http://docs.neuromeka.com/2.3.0/en/Python/section1/)**
 
-IndyDCP는ROS를 사용하지 않고 Neruomeka에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. IndyDCP는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 같은 Directory에 위치 시킨다.
+**IndyDCP**는ROS를 사용하지 않고 **Neruomeka**에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. **IndyDCP**는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 **같은 Directory**에 위치 시킨다.
 
 ```python
 from indy_utils import indydcp_client as client
@@ -42,7 +42,7 @@ indy = client.IndyDCPClient(robot_ip, robot_name)
 indy.connect()
 ```
 
-위 코드를 입력시 Indy-10 Manipulator와 연결이 된다.
+위 코드를 입력시 **Indy-10 Manipulator**와 연결이 된다.
 
 ```python
 indy.set_collision_level(5)
@@ -52,7 +52,7 @@ indy.set_joint_blend_radius(20)
 indy.set_task_blend_radius(0.2)
 ```
 
-위 의 코드로 Manipulator의 기능을 Setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
+위 의 코드로 **Manipulator의 기능을 Setting**한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
 
 **ROS를 동작하기 위해서 주의해야할 점은 다음과 같다.**
 
@@ -243,11 +243,11 @@ start position으로 이동한 이후, CSV파일의 좌표대로 그림을 그�
 
 ### Tutorial code
 
-[Tutorial source Link](https://github.com/serengil/deepface)
+[Tutorial source Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/source/DrawingEmoticons.py)
 
 ```python
 size = 0.005
 emotion = 'happy'
 ```
 
-133 ~ 134번 라인에 존재하는 emotion 변수에 확인하고 싶은 emotion을 입력해 로봇의 동작을 확인할 수 있다.
+**133 ~ 134**번 라인에 존재하는 emotion 변수에 확인하고 싶은 emotion을 입력해 로봇의 동작을 확인할 수 있다.
