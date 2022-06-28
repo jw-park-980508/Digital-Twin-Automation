@@ -48,22 +48,26 @@
 
 
 ### 5. Contents
-#### 	1) Tutorial0 : Environment setting
+​	**(1) Tutorial0 : Environment setting**
 
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/Tutorial0_EnvironmentSetting.md)
 
-#### 	2) Tutorial1 : Classification of facial expressions
+​	**(2) Tutorial1 : Classification of facial expressions**
+
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/Tutorial1_ClassificationofFacialExpressions.md)
 
-#### 	3) Tutorial2 : Generate coordinate
+​	**(3) Tutorial2 : Generate coordinate**
 
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/Tutorial2_GenerateCoordinate.md)
 
-#### 	4) Tutorial3 : Drawing emoticons
+​	**(4) Tutorial3 : Drawing emoticons**
+
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/Tutorial3_Drawing%20emoticons.md)
 
-#### 	5) Tutorial4 : End-effector
+​	**(5) Tutorial4 : End-effector**
+
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/Tutorial4_EndEffector.md)
 
-#### 	6) Demo vedio & Furtherwork
+​	**(6) Demo vedio & Furtherwork**
+
 * [Reference Link](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/mdfiles/DemoVideo_FutureWork.md)
