@@ -11,4 +11,4 @@
 
 
 ### Install python module
-Face Detection의 순서는 다음과 같다.
+![image](https://user-images.githubusercontent.com/84506968/176124323-db3f0988-5504-4fb7-9f31-c8ec3ff0f5cb.png)
