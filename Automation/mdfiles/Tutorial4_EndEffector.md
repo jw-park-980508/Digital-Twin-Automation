@@ -6,13 +6,16 @@
 편의상 End-Effector라 칭하겠다. 
 
 
-Overview
+### Overview
+
+End-Effector 보조 하드웨어의 순서는 다음과 같다.
 
 Step 1. End-Effector의 필요성
 
 Step 2. End-Effector 제작
 
 Step 3. 주의사항
+
 
 
 ### Step1 : End-Effector의 필요성
