@@ -14,7 +14,9 @@ Step 2. Deepface를 통해 표정을 분석한다.
 
 
 
-### Step1 
+
+
+### Step1 : 얼굴부분 boundig box이미지 생성
 MediaPipe는 Bounding Box의 좌표를 제공한다. 제공하는 좌표는 Bounding Box의 Xmin, Ymin, Width, height 총 4개의 좌표를 제공한다. 또한 0~1로 각 좌표들이 Normalize하여 제공하다.
 
 ```python
@@ -43,7 +45,9 @@ croppedImage = now_image[top:bottom, left:right]
 
 
 
-### Step2
+
+
+### Step2 : Deepface를 통한 표정분석
 얼굴 표정을 인식하는 딥러닝 모델은 **DeepFace**에서 제공하는 Model을 사용했다. DeepFace는 사람의 표정을 분석하여 총 7개의 표정에 대해 각각의 확률를 비교한 뒤 가장 높은 확률의 표정을 출력한다.
 
 DeepFace는 다양한 검증된 모델들을 wrapping하고 있는 경량의 하이브리드 face recognition 프레임워크이다. 또한 "VGG-Face", "Facenet", "Facenet512", "OpenFace", "DeepFace", "DeepID", "ArcFace", "Dlib", "SFace" 의 다양한 모델들을 제공한다. default는 VGG-Face를 제공한다.
