@@ -28,41 +28,44 @@ Indy - 10 은 Manipulator의 일종으로 간의 팔과 유사한 동작을 제�
 
 #### - **End-Effector**
 
-그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 아닐 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 End - Effector를 디자인 하였다. 
+![image](https://user-images.githubusercontent.com/107538917/176117430-a811b802-eda9-4ee8-b868-ccaf4cb71e8f.png)
 
-Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+위 그림은 로봇 팔이 좌표를 이동하는 그림이다. 그림에서 확인할 수 있듯이 로봇팔이 포물선을 그리면서 이동한다. 
+이 경우 이모티콘이 점으로 그려진다.(점묘화) 이를 방지하고자 End Effector가 제작되었다. 
+따라서 본 End Effector의 목적은 펜이 바닥과 떨어지는 것을 최대한 방지하는 것이다.
+
+
+
+총 3개의 파트로 구성되어 있다.
+
 
 아래 그림들(PART1,2,3)은 End - Effector를 구성하는 부품들이다.
 
 
-
-<img src="https://user-images.githubusercontent.com/107538917/173776826-fcde3fc6-2334-4f2b-a148-d40a5a303914.PNG" width="200" height="200"/> 
-
-
-
-​				**PART1**			
-
-<img src="https://user-images.githubusercontent.com/107538917/173777014-e73b6871-d9d9-4506-8b74-14a2b4577dab.PNG" width="200" height="200"/>
-
-**PART2**		
-
-<img src="https://user-images.githubusercontent.com/107538917/173776959-6cf4fa07-5a8f-45fd-8593-8ef195882312.PNG" width="200" height="200"/>
-
-&nbsp; **PART3**
+![image](https://user-images.githubusercontent.com/107538917/176122614-a32a7bd9-3c5f-4ab9-9bbf-aadd73cfe543.png)
 
 
 
 
+![image](https://user-images.githubusercontent.com/107538917/176122881-5d63c925-d5b8-4d0f-883c-156e7bd6552a.png)
 
 
+위 그림은 3개 파트 및 스프링과 펜의 연결 분해도이다. 
+part1과 part2는 스프링으로 서로 연결되어 있으며 글루건을 이용하여 펜이 파트2에 완전히 고정되어 있다. 
+part1과 part2를 보호하기 위해서 part3을 씌워주면 하드웨어 조립은 끝이다.
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/107538917/173785554-8bd86e44-f22d-4535-a011-2defd98e626b.png">
-</p>																		
+이 부품의 원리는 간단하다.
+로봇 팔이 잡는 부분은 part1과 part3과 part2은 스프링으로 연결되어 있다. 따라서 로봇 팔이 일정 범위(스프링의 가동범위 내)내 움직여도 펜이 바닥에서 떨어지지 않을 수 있다.  
 
-​	&nbsp;																						<p align="center">**Assemble**</p>
 
-위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
+각 부품들은 Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+쓰고 닦을 수 있도록 수정 사인펜과 볼펜에 들어있는 스프링을 사용하였다. 
+자세한 치수는 프로그램으로 확인해 보길 바란다. 
+
+주위사항
+- 그림이 그려지는 보드가 수평이 맞춰져야 end effector가 제 역할을 다 할 수 있다. 
+본 코드는 z축 좌표가 고정되어 있다. 만약 보드의 수평이 맞지 않을 경우 점으로 이모티콘이 그려지거나 펜의 촉이 휘어지는 불상사가 발생할 수 있음.
+이를 방지하기 위해서 스프링의 길이를 늘리것도 방법이다. 
 
 
 
@@ -345,7 +348,7 @@ go_home()
 
 ## 4. Demonstration
 
-### 1) [Demo Video](https://www.youtube.com/watch?v=NvrPuWp_uHM)
+### 1) [Demo Video](https://youtu.be/i0M4RSne7zU)
 
 ### 2) [Final Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Drawing.py)
 
