@@ -1,99 +1,57 @@
 
 
-# Tutorial2 : Generate coordinate
+# Tutorial3 : Drawing Emoticons
 
-본 튜토리얼은 로봇이 그리는 이모티콘의 좌표를 생성하는 튜토리얼이다.
+본 튜토리얼은 Manupulator를 사용하여 앞서 얻은 좌표대로 drawing을 하는 Tutorial이다. 
 
-### Overview
+### 1) IndyDCP
 
-Face Detection의 순서는 다음과 같다.
+Reference Link: [Neuromeka](http://docs.neuromeka.com/2.3.0/en/Python/section1/)
 
-Step 1. openCV로 이모티콘을 그린다.
-
-Step 2. 정의된 함수로 이모티콘의 좌표들을 획별로 생성한다.
-
-본 함수들을 보다 잘 이용하고 개선하기 위해서는 알고리즘의 설명 또한 필요하기에 해당 내용은 마지막에 서술하겠다.
-
-
-
-
-### Step1 : 이모티콘 그리기
-openCV의 ellipse, line, circle과 같은 함수들을 이용하여 이모티콘의 이미지를 생성한다.
+IndyDCP는ROS를 사용하지 않고 Neruomeka에서 제공하는 Indy-10을 사용하기 위해 제공하는 Library이다. IndyDCP는 Python에서 사용 가능하다. 설치방법은 다음과 같다.  [***Download Python IndyDCP Client\***](https://s3.ap-northeast-2.amazonaws.com/download.neuromeka.com/Examples/indydcp_example.zip) 해당 링크를 눌러 다운 받고 알집을 실행할 .py파일과 같은 Directory에 위치 시킨다.
 
 ```python
-imge = np.ones((100, 100), dtype=np.uint8)*255 
+from indy_utils import indydcp_client as client
 
-cv2.circle(imge,(50,50),20,0)
-cv2.circle(imge,(42,45),3,0)
-cv2.circle(imge,(58,45),3,0)
-cv2.ellipse(imge,(50,60),(10,6),0,10,170,1)
-cv2.ellipse(imge,(50,60),(10,6),0,170,350,1)
+robot_ip = "192.168.0.6"  # Robot (Indy10) IP
+robot_name = "NRMK-Indy10"  # Robot name (Indy10)indy
 
-cv2.imshow('imge',imge)
+# Create class object
+indy = client.IndyDCPClient(robot_ip, robot_name)
 
-cv2.waitKey()
-cv2.destroyAllWindows()
+indy.connect()
 ```
 
-위의 코드의 imge는 웃는 이모티콘의 예시이다.
-
-임의의 빈 이미지 파일을 생성하고, 해당 이미지에 CV함수를 통하여 원하는 이미지를 그린다.
+위 코드를 입력시 Indy-10 Manipulator와 연결이 된다.
 
 
-
-### Step2 : 좌표생성
-로봇이 움직일 때, 한 획을 그리고 펜을 뗀 후에 새로운 획을 그려야 하기 때문에 아래와 같은 방법으로 좌표를 생성한다.
 
 ```python
-#놀람
-imge = np.ones((100, 100), dtype=np.uint8)*255 
-# cv2.circle(imge,(50,50),20,0)
-# cv2.circle(imge,(42,45),3,0)
-# cv2.circle(imge,(58,45),3,0)
-# cv2.ellipse(imge,(50,60),(10,6),0,10,170,1)
-cv2.ellipse(imge,(50,60),(10,6),0,170,350,1)
-
-cv2.imshow('imge',imge)
-
-cv2.waitKey()
-cv2.destroyAllWindows()
+indy.set_collision_level(5)
+indy.set_joint_vel_level(7)
+indy.set_task_vel_level(7)
+indy.set_joint_blend_radius(20)
+indy.set_task_blend_radius(0.2)
 ```
 
-먼저 위의 코드를 실행해 좌표를 저장하고자 하는 이미지를 생성 및 모양을 확인한다.
+위 의 코드로 Manipulator의 기능을 Setting한다. 함수에 대한 설명은 Reference Link에 추가적으로 제시하고 있다.
 
-그 이후 아래의 함수를 활용하여 좌표가 포함된 CSV파일을 생성한다. 해당 파일의 생성위치는 코드와 동일한 위치에 생성된다.
+
 
 ```python
-gen_rel_coordinate(imge, 'surprise_2')
-gen_rel_coordinate_noncircle(imge,'surprise_4')
+indy.go_home()
+
+key = ['ready', 'emergency', 'collision', 'error', 'busy', 'movedone', 'home', 'zero', 'resetting', 'teaching', 'direct_teaching']
+
+while True:
+	status = indy.get_robot_status()
+    sleep(0.2)
+	if status[key[5]]==1 :
+        break
 ```
 
-**Documentation**
+ROS를 동작하기 위해서는 위와 같은 충돌을 방지하는 코드가 필요하다
 
-imge : 좌표를 추출하고자 하는 이미지 (한 획만 포함되어야 함)
+**Status**에는 위의 Text들이 Dictionary형태로 저장되어있다.  따라서 key[5]는 movedone을 의미한다. 
 
-'surprise_2' : 저장하고자 하는 CSV파일의 이름 (string형태로 입력해야 함)
-
-<br/>
-
-### 전체 코드
-
-본 코드는 ipynb로 작성되었기 때문에 링크만 첨부하겠다.
-
-openCV로 그려진 이미지들과 좌표를 생성하는 함수가 정의되어있다.
-
-Whole code: [Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Coordinate%20Generator.ipynb)
-
-
-
-### 알고리즘
-
-<img src="https://user-images.githubusercontent.com/84506968/173517584-9b43627b-a9da-45db-9ad8-1ea704f44768.png" width="600" height="300"/>
-</p>	
-이중 반복문을 통하여 가장 왼쪽의 점을 Detect한다.
-
-그 이후 화살표방향으로 좌표값을 저장한다. (이 때에는 같은 x좌표의 경우에는 가장 y값이 큰 것을 선택한다)
-
-다음 반복문에서는 나머지 반원의 좌표를 저장한다.
-
-개선사항 : y값이 가장 큰 것만을 선택하기 생성되는 좌표로 그리는 이미지가 불균형할 수 있으며, 1자로 된 이미지가 존재한다면 한 점만 저장될수도 있다.
+**!주의!** 움직임 끝나지 않은 상태에서 다른 명령을 주게 되면 해당 Library에서 Task가 꼬이게 되는 일이 발생한다. 
