@@ -6,18 +6,12 @@
 <br/><br/>
 ## Introduction
 이 Repository는 2022년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용입니다.
-
-
-
-미국의 심리학자 폴 에크만의 연구에 따르면 인간의 표정은 
-
-
-
 우리는 카메라를 통해 사용자를 **7가지의 표정으로 분석**하고, manipulator를 활용하여 분석한 감정에 해당하는 **이모티콘을 그려주는** 프로젝트를 진행했습니다.
 
 <br/>
 
 ## Overview
+![image](https://user-images.githubusercontent.com/84506968/176113683-1203b68f-0ffd-4453-8deb-4568e05cae64.png)
 
 **WIFI 연결**이 가능한 노트북 or 데스크탑이여야 하며, 이 프로젝트에서 사용한 노트북의 사양은 CPU - Intel(R) Core(TM) i7-9750H, RAM - 16GB, Graphic Card - NVIDIA GeForce RTX 2060 입니다.
 **INDY-10 전용 태블릿**은 로봇 연결 및 상태 확인, 모드 변경을 통한 좌표 추출 등 프로젝트 수행 시 매우 유용한 도구입니다.
