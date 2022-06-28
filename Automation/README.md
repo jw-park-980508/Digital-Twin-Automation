@@ -1,11 +1,17 @@
 
 
 # Digital Twin & Automation
-# Classification of 7 facial expressions & Drawing face emoticons with Manipulator
+## Classification of 7 facial expressions & Drawing face emoticons with Manipulator
 
 <br/><br/>
 ## Introduction
 이 Repository는 2022년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용입니다.
+
+
+
+미국의 심리학자 폴 에크만의 연구에 따르면 인간의 표정은 
+
+
 
 우리는 카메라를 통해 사용자를 **7가지의 표정으로 분석**하고, manipulator를 활용하여 분석한 감정에 해당하는 **이모티콘을 그려주는** 프로젝트를 진행했습니다.
 
