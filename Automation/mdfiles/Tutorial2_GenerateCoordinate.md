@@ -8,7 +8,7 @@
 
 Face Detection의 순서는 다음과 같다.
 
-Step 1. openCV로 이모티콘을 그린다.
+Step 1. **openCV**로 이모티콘을 그린다.
 
 Step 2. 정의된 함수로 이모티콘의 좌표들을 획별로 생성한다.
 
@@ -18,7 +18,7 @@ Step 2. 정의된 함수로 이모티콘의 좌표들을 획별로 생성한다.
 
 
 ### Step1 : 이모티콘 그리기
-openCV의 ellipse, line, circle과 같은 함수들을 이용하여 이모티콘의 이미지를 생성한다.
+**openCV**의 ellipse, line, circle과 같은 함수들을 이용하여 이모티콘의 이미지를 생성한다.
 
 ```python
 imge = np.ones((100, 100), dtype=np.uint8)*255 
@@ -61,7 +61,7 @@ cv2.destroyAllWindows()
 
 먼저 위의 코드를 실행해 좌표를 저장하고자 하는 이미지를 생성 및 모양을 확인한다.
 
-그 이후 아래의 함수를 활용하여 좌표가 포함된 CSV파일을 생성한다. 해당 파일의 생성위치는 코드와 동일한 위치에 생성된다.
+그 이후 아래의 함수를 활용하여 **좌표가 포함된 CSV파일**을 생성한다. 해당 **파일의 생성위치는 코드와 동일한 위치**에 생성된다.
 
 ```python
 gen_rel_coordinate(imge, 'surprise_2')
@@ -70,17 +70,17 @@ gen_rel_coordinate_noncircle(imge,'surprise_4')
 
 **Documentation**
 
-imge : 좌표를 추출하고자 하는 이미지 (한 획만 포함되어야 함)
+**imge** : 좌표를 추출하고자 하는 이미지 (한 획만 포함되어야 함)
 
-'surprise_2' : 저장하고자 하는 CSV파일의 이름 (string형태로 입력해야 함)
+**'surprise_2'** : 저장하고자 하는 CSV파일의 이름 (string형태로 입력해야 함)
 
 <br/>
 
 ### 전체 코드
 
-본 코드는 ipynb로 작성되었기 때문에 링크만 첨부하겠다.
+본 코드는 **.ipynb**로 작성되었기 때문에 링크만 첨부하겠다.
 
-openCV로 그려진 이미지들과 좌표를 생성하는 함수가 정의되어있다.
+**openCV**로 그려진 이미지들과 좌표를 생성하는 함수가 정의되어있다.
 
 Whole code: [Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/source/Coordinate%20Generator.ipynb)
 
@@ -96,4 +96,4 @@ Whole code: [Coordinate Generate Code](https://github.com/jw-park-980508/Digital
 
 다음 반복문에서는 나머지 반원의 좌표를 저장한다.
 
-개선사항 : y값이 가장 큰 것만을 선택하기 생성되는 좌표로 그리는 이미지가 불균형할 수 있으며, 1자로 된 이미지가 존재한다면 한 점만 저장될수도 있다.
+**개선사항**: y값이 가장 큰 것만을 선택하기 생성되는 좌표로 그리는 이미지가 불균형할 수 있으며, 1자로 된 이미지가 존재한다면 한 점만 저장될수도 있다.
