@@ -28,9 +28,14 @@ Indy - 10 은 Manipulator의 일종으로 간의 팔과 유사한 동작을 제�
 
 #### - **End-Effector**
 
-그림을 그리는 바닥 면이 완전한 수평이지 않을 경우 그림이 매끄럽게 그려지지 않는다. 펜을 잡은 로봇 팔이 좌표를 이동할시 바닥이 수평이 아닐 경우 선이 아니라 점만 찍히는 구간이 존재하는 문제가 생긴다. 이를 방지 하기 위해서 End - Effector를 디자인 하였다. 
+![image](https://user-images.githubusercontent.com/107538917/176117430-a811b802-eda9-4ee8-b868-ccaf4cb71e8f.png)
 
-Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+위 그림은 로봇 팔이 좌표를 이동하는 그림이다. 그림에서 확인할 수 있듯이 로봇팔이 포물선을 그리면서 이동한다. 
+이 경우 이모티콘이 점으로 그려진다.(점묘화) 이를 방지하고자 End Effector를 만들었다. 
+End Effector는 펜이 바닥과 떨어지는 것을 막아준다. 
+
+총 3개의 파트로 구성되어 있다.
+
 
 아래 그림들(PART1,2,3)은 End - Effector를 구성하는 부품들이다.
 
@@ -40,7 +45,7 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 
 
-​				**PART1**			
+​				**PART1**
 
 <img src="https://user-images.githubusercontent.com/107538917/173777014-e73b6871-d9d9-4506-8b74-14a2b4577dab.PNG" width="200" height="200"/>
 
@@ -62,9 +67,16 @@ Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다.
 
 ​	&nbsp;																						<p align="center">**Assemble**</p>
 
-위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다. PART2에 펜을 고정하여 로봇팔이 펜을 눌러 사용할 수 있도록 하였다. 
+위 그림(Assemble)은 3개 파트와 스프링으로 연결한 모습이다.
+파트1과 파트2는 스프링으로 서로 연결되어 있다. 그리고 글루건을 이용하여 펜이 파트2에 완전히 고정되어 있다. 
+마지막으로 파트1과 파트2를 보호하기 위해서 파트3을 씌워주면 하드웨어 조립은 끝이다.
+
+로봇 팔이 잡는 부분은 part1과 3이다. 이 파트들과 part2은 스프링으로 연결되어 있어 완충 효과를 볼 수 있다. 
 
 
+각 부품들은 Solidworks Tool을 이용하여 디자인하였고, 3D print로 출력하였다. 
+쓰고 닦을 수 있도록 수정 사인펜과 볼펜에 들어있는 스프링을 사용하였다. 
+자세한 치수는 프로그램으로 확인해 보길 바란다. 
 
 ### 3) **SoftWare**
 
@@ -345,7 +357,7 @@ go_home()
 
 ## 4. Demonstration
 
-### 1) [Demo Video](https://www.youtube.com/watch?v=NvrPuWp_uHM)
+### 1) [Demo Video](https://youtu.be/i0M4RSne7zU)
 
 ### 2) [Final Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Drawing.py)
 
