@@ -58,7 +58,7 @@ part1과 part2는 스프링으로 서로 연결되어 있으며 글루건을 이
 용의한 수정을 위해서 보드 마카와 화이트 보드를 사용하였으며, 시중 볼펜의 일부부품인 스프링을 사용하였다.
 자세한 치수는 프로그램으로 확인해 보길 바람.
 
-
+[Modeling File Link](https://github.com/jw-park-980508/Digital-Twin-Automation/tree/main/Automation/hardware)
 
 ### Step3 : 주의사항
 - 그림이 그려지는 보드가 수평이 맞춰져야 End-Effector가 제 역할을 다 할 수 있다. 
