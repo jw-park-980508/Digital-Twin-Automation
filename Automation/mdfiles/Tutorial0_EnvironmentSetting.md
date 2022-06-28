@@ -11,4 +11,4 @@
 
 
 ### Install python module
-![image](https://user-images.githubusercontent.com/84506968/176124323-db3f0988-5504-4fb7-9f31-c8ec3ff0f5cb.png)
+![image](https://user-images.githubusercontent.com/84506968/176124514-1a0ec6cc-c4b7-460d-b18d-ce078bd05aa2.png)
