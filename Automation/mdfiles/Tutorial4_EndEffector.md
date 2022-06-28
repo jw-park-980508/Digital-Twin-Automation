@@ -5,6 +5,11 @@
 본 튜토리얼은 end effector를 3D프린터로 출력하기 위해 필요한 튜토리얼이다.
 
 
+Overview
+Step 1. End-Effector의 필요성
+Step 2. End-Effector 제작
+Step 3. 주의사항
+
 
 ### **End-Effector**
 
