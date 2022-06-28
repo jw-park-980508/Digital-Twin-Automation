@@ -82,7 +82,7 @@ imge : 좌표를 추출하고자 하는 이미지 (한 획만 포함되어야 �
 
 openCV로 그려진 이미지들과 좌표를 생성하는 함수가 정의되어있다.
 
-Whole code: [Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/Coordinate%20Generator.ipynb)
+Whole code: [Coordinate Generate Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/source/Coordinate%20Generator.ipynb)
 
 
 
