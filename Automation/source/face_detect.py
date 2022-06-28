@@ -47,12 +47,6 @@ with mp_face_detection.FaceDetection(
         
         #bounding box의 부분만 가져옴
         croppedImage = now_image[top:bottom, left:right]
-        
-        ##### bounding box를 그려주는 건데 이미 라이브러리에서 제공함
-        # cv2.line(image, (left, top), (right, top), (255,0,0), thickness=2)
-        # cv2.line(image, (left, bottom), (right, bottom), (255,0,0), thickness=2)
-        # cv2.line(image, (left, top), (left, bottom), (255,0,0), thickness=2)
-        # cv2.line(image, (right, top), (right, bottom), (255,0,0), thickness=2)
 
         if keyboard.is_pressed("c"):
           print('pressed c')
@@ -61,22 +55,7 @@ with mp_face_detection.FaceDetection(
         if Flag == True:
           person_sec += 1 #사람이 detection된 프레임의 수 1초에 33 frame
           print('person_sec: ',person_sec)
-
-        # if person_sec == 66:
-        #   Flag = False
-        #   save_image = croppedImage
-        #   person_sec = 0
-        #   print('Image Captured!')
           
-        #   try:
-        #       obj = DeepFace.analyze(img_path = save_image, actions = ['emotion'], enforce_detection= False)
-        #       print('Probability =',obj['emotion'][obj['dominant_emotion']])
-        #       print(obj['dominant_emotion'])
-        #   except:
-        #       print('image should be clear')
-          
-          
-
     else:
       person_sec = 0
       Flag = False
