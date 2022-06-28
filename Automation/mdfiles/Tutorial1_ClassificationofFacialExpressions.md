@@ -157,4 +157,4 @@ with mp_face_detection.FaceDetection(
 cap.release()
 ```
 
-Whole code: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/Code/face_detect.py)
+Whole code: [Face Detection Code](https://github.com/jw-park-980508/Digital-Twin-Automation/blob/main/Automation/source/face_detect.py)
