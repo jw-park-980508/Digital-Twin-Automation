@@ -1,11 +1,13 @@
 
 
-# Digital Twin & Automation
-## Classification of 7 facial expressions & Drawing face emoticons with Manipulator
+# Tutorial1 : Classification of facial expressions
 
-### Introduction
-​	 이 Repository는 2022년도 1학기에 Digital Twin & Automation 수업의 Automation Part의 내용입니다.
-​	 우리는 카메라를 통해 사용자를 **7가지의 표정으로 분석**하고, manipulator를 활용하여 분석한 감정에 해당하는 **이모티콘을 그려주는** 프로젝트를 진행했습니다.
+### Overview
+Face Detection의 순서는 다음과 같다.
+
+Step 1. Webcam을 사용하여 사람의 얼굴을 분석하고 Detect한다.
+
+Step 3. Pre-Train 된 모델을 사용하여 사람의 표정을 7개의 종류 중 하나로 분석한다.
 
 
 ### Overview
@@ -40,25 +42,19 @@
 
 ![image](https://user-images.githubusercontent.com/84506968/176116697-aed4abe5-020c-4aaf-9a3e-ae9c0b08745f.png)
 
-​	**(1)** **hardware** : End effector제작을 위해 필요한 CAD-files
+​	(1) Wifi 혹은 Lan케이블의 연결이 가능한 **노트북**
 
-​	**(2)** **mdfiles** : Repository의 설명
+​	(2) 테이블에 고정이 가능한 **화이트보드**
 
-​	 **(3)** **source** : 본 프로젝트에 사용된 source files
-  <br/>
+​	(3) **보드마카**
+
+<br/>
 
 ### Contents
-
-- ##### Tutorial1 : Classification of facial expressions
-
-  * [Reference Link](https://github.com/Yjinsu/Digital_Twin_and_Automation/blob/main/Project%232/md_files/Tutorial%20-%20Manipulator%20INDY-10%20%26%20Gripper%20VGC10.md)
-
-* ##### Tutorial2 : Generate coordinate
+* ##### Tutorial for Indy Hardware & Gripper Setting
   * [Reference Link](https://github.com/Yjinsu/Digital_Twin_and_Automation/blob/main/Project%232/md_files/Tutorial%20-%20Manipulator%20INDY-10%20%26%20Gripper%20VGC10.md)
 
 
-* ##### Tutorial3 : Drawing emoticons
-  * [Reference Link](https://github.com/Yjinsu/Digital_Twin_and_Automation/blob/main/Project%232/md_files/Tutorial%20-%20%EC%9A%B0%ED%8E%B8%20%EB%B6%84%EB%A5%98%20%EA%B3%B5%EC%A0%95%20(Pick%20%26%20Place%20using%20QR%20Code).md)
-* ##### Demo vedio & Furtherwork
+* ##### Tutorial for project implementation (Pick and Place using QR Code)
   * [Reference Link](https://github.com/Yjinsu/Digital_Twin_and_Automation/blob/main/Project%232/md_files/Tutorial%20-%20%EC%9A%B0%ED%8E%B8%20%EB%B6%84%EB%A5%98%20%EA%B3%B5%EC%A0%95%20(Pick%20%26%20Place%20using%20QR%20Code).md)
 
